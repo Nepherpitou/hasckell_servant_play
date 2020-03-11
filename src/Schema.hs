@@ -1,7 +1,6 @@
-{-# LANGUAGE DeriveGeneric        #-}
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE TypeSynonymInstances #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Schema where
 
@@ -28,26 +27,30 @@ data Product =
   deriving (Show, Generic)
 
 instance ToJSON Product
+
 instance FromJSON Product
 
-data ProductEntity = ProductEntity ProductId Product
+data ProductEntity =
+  ProductEntity ProductId Product
 
-newtype ProductInput = ProductInput (String, Float) deriving (Show)
+newtype ProductInput =
+  ProductInput (String, Float)
+  deriving (Show)
+
 instance FromJSON ProductInput where
   parseJSON = withObject "sample" $ \s -> ProductInput <$> ((,) <$> s .: "name" <*> s .: "price")
 
 instance ToJSON ProductEntity where
-  toJSON (ProductEntity pid product) = Object (HML.union (safeObject (toJSON product)) (safeObject idObject)) where
-    safeObject jso = case jso of
-      Object o -> o
-      _        -> HML.empty
-    idObject = object [ "id" .= pid ]
+  toJSON (ProductEntity pid product) = Object (HML.union (safeObject (toJSON product)) (safeObject idObject))
+    where
+      safeObject jso =
+        case jso of
+          Object o -> o
+          _        -> HML.empty
+      idObject = object ["id" .= pid]
 
 instance Show ProductEntity where
   show pe = unpack $ encode pe
-
-productEntity :: ProductId -> Product -> ProductEntity
-productEntity = ProductEntity
 
 runSchema :: IO ()
 runSchema = do

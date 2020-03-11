@@ -56,7 +56,7 @@ productDecoder = Product
   <*> D.column (D.nonNullable D.timestamptz) -- created_at
 
 productEntityDecoder :: D.Row ProductEntity
-productEntityDecoder = productEntity
+productEntityDecoder = ProductEntity
   <$> D.column (D.nonNullable stringDecoder)
   <*> productDecoder
 
@@ -87,7 +87,7 @@ testRun conf = do
       productId <- getCurrentTime >>= \t -> insertProduct c $ Product "test" 10.0 t
       putStrLn $ "New product created with id " ++ show productId
       pp <- either (pure . Left) (getProductById c) productId
-      putStrLn $ "Craeted product retrieved " ++ show pp
+      putStrLn $ "Created product retrieved " ++ show pp
       Conn.release c
   putStrLn "Test done"
 

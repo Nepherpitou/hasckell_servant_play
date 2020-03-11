@@ -185,5 +185,21 @@
     <orderEntry type="library" name="data-checked-0.3" level="project" />
     <orderEntry type="library" name="math-functions-0.3.3.0" level="project" />
     <orderEntry type="library" name="vector-th-unbox-0.2.1.7" level="project" />
+    <orderEntry type="library" name="servant-checked-exceptions-2.2.0.0" level="project" />
+    <orderEntry type="library" name="servant-checked-exceptions-core-2.2.0.0" level="project" />
+    <orderEntry type="library" name="servant-client-0.16.0.1" level="project" />
+    <orderEntry type="library" name="servant-client-core-0.16" level="project" />
+    <orderEntry type="library" name="world-peace-1.0.1.0" level="project" />
+    <orderEntry type="library" name="servant-docs-0.11.4" level="project" />
+    <orderEntry type="library" name="http-client-0.6.4" level="project" />
+    <orderEntry type="library" name="kan-extensions-5.2" level="project" />
+    <orderEntry type="library" name="free-5.1.3" level="project" />
+    <orderEntry type="library" name="aeson-pretty-0.8.8" level="project" />
+    <orderEntry type="library" name="lens-4.17.1" level="project" />
+    <orderEntry type="library" name="universe-base-1.1.1" level="project" />
+    <orderEntry type="library" name="adjunctions-4.4" level="project" />
+    <orderEntry type="library" name="invariant-0.5.3" level="project" />
+    <orderEntry type="library" name="parallel-3.2.2.0" level="project" />
+    <orderEntry type="library" name="reflection-2.1.5" level="project" />
   </component>
 </module>
